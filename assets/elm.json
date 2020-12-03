@@ -15,11 +15,16 @@
             "perzanko/elm-loading": "2.0.4"
         },
         "indirect": {
+            "avh4/elm-color": "1.0.0",
+            "danfishgold/base64-bytes": "1.1.0",
             "elm/bytes": "1.0.8",
             "elm/file": "1.0.5",
             "elm/time": "1.0.0",
             "elm/url": "1.0.0",
             "elm/virtual-dom": "1.0.2",
+            "elm-community/easing-functions": "2.0.0",
+            "elm-community/list-extra": "8.2.4",
+            "folkertdev/elm-flate": "2.0.4",
             "rtfeldman/elm-css": "16.1.0",
             "rtfeldman/elm-hex": "1.0.0"
         }

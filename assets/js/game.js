@@ -9,20 +9,26 @@ import "../css/app.scss"
 //
 // Import deps with the dep name or local files with a relative path, for example:
 //
-//     import {Socket} from "phoenix"
-//     import socket from "./socket"
+// import {Socket} from "phoenix"
+// import socket from "./socket"
 //
-import "phoenix_html"
-import { Elm } from "../src/Main.elm";
 
-var main = Elm.Main.init({
-    node: document.getElementById('elm-main'),
+import "phoenix_html"
+import { Elm } from "../src/Game.elm";
+
+var main = Elm.Game.init({
+    node: document.getElementById('elm-game'),
     flags : {url: window.location.href }
 });
 
 main.ports.sendMessage.subscribe(function(message) {
-    if(message.includes("?username:")){
-        console.log(message.substr(10));
-        sessionStorage.setItem("username", message.substr( 10));
+    switch (message) {
+        case (message.includes("?username:")):
+            console.log(message.substr(10));
+            sessionStorage.setItem("username", message.substr(10));
+            break;
+        case (message.includes("?bet:")):
+            console.log(message);
+            break;
     }
 });
