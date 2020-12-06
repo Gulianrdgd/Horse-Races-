@@ -13,8 +13,10 @@ import Loading
       , defaultConfig
       , render
       )
-import Platform.Cmd exposing (batch)
+import Platform.Cmd exposing (batch, none)
+import Process exposing (sleep)
 import String exposing (slice, toLower)
+import Task exposing (attempt)
 
 -- MAIN
 
@@ -39,9 +41,6 @@ type alias Model =
 init : String -> Model
 init str =
   Model "" "" False "" str
-
---url : String
---url = "http://localhost:4000/"
 
 subscriptions : Model -> Sub Msg
 subscriptions model =
@@ -70,8 +69,8 @@ update msg model =
     Response res ->
         case res of
            Ok val -> case slice 1 -1 val of
-                      "DoneDone" -> ( model, batch [sendMessage ("?username:" ++ model.username), load (model.url ++ "room/" ++ model.roomCode)] )
-                      "Done" -> ( model, load (model.url ++ "room/" ++ model.roomCode) )
+                      "DoneDone" -> ( model, batch [sendMessage ("?username:" ++ model.username), sendMessage ("?isHost:" ++ "Y"), load (model.url ++ "room/" ++ model.roomCode)] )
+                      "Done" -> ( model, batch [sendMessage ("?username:" ++ model.username), sendMessage ("?isHost:" ++ "N"), load (model.url ++ "room/" ++ model.roomCode)] )
                       _-> ({ model | response = slice 1 -1 val}, Cmd.none)
            Err _ -> ({ model | response = "err"}, Cmd.none)
 
@@ -86,11 +85,24 @@ view model =
                Loading.On -- LoadingState
            ]
     else
-       div  [class "container form"]
-            [ viewInput "text" "Username" model.username Username
-            , viewInput "text" "Roomcode" (toLower model.roomCode) RoomCode
-            , button [ onClick (Submit True) ] [ text model.url ]
-            , p [] [ text model.response]
+       div [class "container columns fade is-vertical-center", style "margin-top" "8rem"]
+           [
+              div [class "column is-one-fifth is-flex is-horizontal-center"]
+                  [
+                    img [src "/images/thalia.svg", class ""] []
+                  ],
+              div  [class "column container form fade", style "margin" "auto"]
+                   [ p [class "subtitle is-5 has-text-white", style "margin-bottom" "0.3rem"] [text "Enter a username"]
+                   , viewInput "text" "Username" model.username Username
+                   , p [class "subtitle is-5 has-text-white", style "margin-bottom" "0.3rem"] [text "Enter a roomCode"]
+                   , viewInput "text" "Roomcode" (toLower model.roomCode) RoomCode
+                   , button [class "button", onClick (Submit True) ] [ text "submit" ]
+                   , p [] [ text model.response]
+                   ],
+              div [class "column is-one-fifth is-flex is-horizontal-center"]
+                  [
+                    img [src "/images/thalia.svg", class ""] []
+                  ]
             ]
 
 

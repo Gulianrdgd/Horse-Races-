@@ -10,18 +10,6 @@ defmodule HorseracesWeb.RoomChannel do
     uid = socket.assigns.user_id
     :ok = ChannelWatcher.monitor(:room, self(), {__MODULE__, :leave, [room, uid]})
     send(self(), :after_join)
-
-    res = Users |> Ecto.Query.where(username: ^uid) |> Repo.exists?
-    if !res do
-      changeset = Users.changeset(%Users{}, %{username: uid, roomCode: room, color: "", bet: 0})
-      Repo.insert(changeset)
-    end
-
-    res = Rooms |> Ecto.Query.where(roomCode: ^room) |> Repo.exists?
-    if !res do
-      changeset = Rooms.changeset(%Rooms{}, %{roomCode: room , isPlaying: false, host: uid})
-      Repo.insert(changeset)
-    end
     {:ok, socket}
   end
 
@@ -59,18 +47,41 @@ defmodule HorseracesWeb.RoomChannel do
   def leaving(room_id, user_id, new_host) do
     payload = %{"body" => "?leaving", "name" => new_host, "left" => user_id}
     payload = Map.merge(payload, %{"room" => room_id})
-    HorseracesWeb.Endpoint.broadcast("chat:" <> room_id, "shout", payload)
+    HorseracesWeb.Endpoint.broadcast("room:" <> room_id, "shout", payload)
   end
 
   def handle_in("shout", payload, socket) do
     #    payload {"body" => "message", "name" => "username"}
     #    topic is vissible in socket
     case payload["body"] do
+      "?bet" ->
+        "room:" <> room = socket.topic
+        payload = Map.merge(payload, %{"room" => room})
+        placeBet(payload["name"], room, payload["color"], payload["bet"])
+        checkIfReady(room)
+        {:noreply, socket}
       _ ->
-        "chat:" <> room = socket.topic
+        "room:" <> room = socket.topic
         payload = Map.merge(payload, %{"room" => room})
         broadcast socket, "shout", payload
         {:noreply, socket}
+    end
+  end
+
+  def placeBet(username, roomCode, color, bet) do
+    users = Users |> Ecto.Query.where(username: ^username) |> Repo.one
+    changeset = Users.changeset(users, %{username: username, roomCode: roomCode, color: color, bet: bet})
+    Repo.update(changeset)
+  end
+
+  def checkIfReady(roomCode) do
+    case Users |> Ecto.Query.where(roomCode: ^roomCode) |> Repo.all |> Enum.filter(fn x -> x.color == "none" end) |> Enum.empty? do
+      true ->
+        payload = %{"body" => "?letsgo", "username" => "?server"}
+        payload = Map.merge(payload, %{"room" => roomCode})
+        HorseracesWeb.Endpoint.broadcast("room:" <> roomCode, "shout", payload)
+      false ->
+        false
     end
   end
 

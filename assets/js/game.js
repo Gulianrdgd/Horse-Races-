@@ -1,34 +1,86 @@
-// We need to import the CSS so that webpack will load it.
-// The MiniCssExtractPlugin is used to separate it out into
-// its own CSS file.
 import "../css/app.scss"
-
-// webpack automatically bundles all modules in your
-// entry points. Those entry points can be configured
-// in "webpack.config.js".
-//
-// Import deps with the dep name or local files with a relative path, for example:
-//
-// import {Socket} from "phoenix"
-// import socket from "./socket"
-//
-
+import {Socket, Presence} from "phoenix"
 import "phoenix_html"
 import { Elm } from "../src/Game.elm";
+
+let roomCode = window.location.pathname.substr(6);
+let username = sessionStorage.getItem("username");
+let socket = new Socket("/socket", {params: {username: username, roomCode: roomCode}});
+let channel = socket.channel('room:' + roomCode, {});
+let presence = new Presence(channel);
+
+let users  = [];
+let isHost = (sessionStorage.getItem("isHost") === "Y");
+
+function renderOnlineUsers(presence) {
+    let count = presence.list().length;
+    if(isHost) {
+        users = []
+        for (let i = 0; i < count; i++) {
+            users.push(presence.list()[i]["metas"][0]["username"]);
+        }
+        channel.push('shout', {name: username,  body: "?userChange", users: users});
+    }
+    if(count === 1 && !isHost){
+        channel.push('shout', {name: username,  body: "?cleanLobby"});
+    }
+    document.getElementById("presence-counter").innerText = `there are currently ${count} players in this room`;
+}
+
+
+socket.connect();
+socket.onError(function x(){
+    socket.disconnect();
+    window.location = "/";
+})
+
+presence.onSync(() => renderOnlineUsers(presence))
+channel.join();
 
 var main = Elm.Game.init({
     node: document.getElementById('elm-game'),
     flags : {url: window.location.href }
 });
 
-main.ports.sendMessage.subscribe(function(message) {
-    switch (message) {
-        case (message.includes("?username:")):
-            console.log(message.substr(10));
-            sessionStorage.setItem("username", message.substr(10));
+
+//////// Init data Elm /////////
+main.ports.messageReceiver.send(JSON.stringify({"username": username}));
+if(isHost){
+    main.ports.messageReceiver.send("?isHost");
+}
+//////// End init data Elm /////////
+
+
+main.ports.sendMessage.subscribe(function(payload) {
+        let message = JSON.parse(payload)
+        console.log(message);
+        switch (message.message){
+            case "?bet":
+                channel.push('shout', {name: username,  body: "?bet", color: message.color, bet: message.bet});
+                break;
+            default:
+                console.log(message.message);
+                break;
+        }
+
+});
+
+channel.on('shout', payload => {
+    switch (payload.body) {
+        case "?userChange":
+            if(!isHost){
+                users = payload.users;
+            }
             break;
-        case (message.includes("?bet:")):
-            console.log(message);
+        case "?leaving":
+            if(payload.name === username){
+                isHost = true;
+                window.isHost = true;
+            }
+            toastr.warning(payload.left + " has left the room")
+            break;
+        default:
+            main.ports.messageReceiver.send(JSON.stringify(payload));
             break;
     }
 });

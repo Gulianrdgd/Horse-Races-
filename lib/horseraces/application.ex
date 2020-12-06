@@ -4,6 +4,7 @@ defmodule Horseraces.Application do
   @moduledoc false
 
   use Application
+  use Supervisor
 
   def start(_type, _args) do
     children = [
@@ -14,9 +15,11 @@ defmodule Horseraces.Application do
       # Start the PubSub system
       {Phoenix.PubSub, name: Horseraces.PubSub},
       # Start the Endpoint (http/https)
-      HorseracesWeb.Endpoint
+      HorseracesWeb.Endpoint,
       # Start a worker by calling: Horseraces.Worker.start_link(arg)
       # {Horseraces.Worker, arg}
+      HorseracesWeb.Presence,
+      worker(Horseraces.ChannelWatcher, [:room])
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

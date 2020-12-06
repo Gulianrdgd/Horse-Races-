@@ -25,6 +25,15 @@ $fullhd-enabled: true;
   align-items: center;
 }
 
+.is-horizontal-center {
+  justify-content: center;
+}
+
+.is-vertical-center {
+  display: flex;
+  align-items: center;
+}
+
 .noselect {
   -webkit-touch-callout: none; /* iOS Safari */
   -webkit-user-select: none; /* Safari */

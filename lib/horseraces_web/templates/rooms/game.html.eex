@@ -1,4 +1,4 @@
-<div class="is-flex" style="min-height: 100vh; flex-direction: column;">
+<div class="is-flex container" style="min-height: 100vh; flex-direction: column;">
     <figure class="image is-48x48 backArrow">
         <img src="<%= Routes.static_path(@conn, "/images/back.svg") %>" alt="" onClick="window.location = '/'">
     </figure>
@@ -10,4 +10,14 @@
         <div class="container" id="elm-game"></div>
     </div>
     <script type="text/javascript" src="<%= Routes.static_url(@conn, "/js/game.js") %>"></script>
+    <script src="https://cdn.jsdelivr.net/gh/mathusummut/confetti.js/confetti.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        let username = sessionStorage.getItem("username");
+        // if(username === null){
+        //     window.location.href = "/";
+        // }
+        document.getElementById("welcome").innerText = "Welcome \"" + username + "\" to room \"" + window.location.pathname.substr(6) + "\"";
+    </script>
 </div>

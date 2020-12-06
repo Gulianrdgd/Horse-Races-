@@ -1,8 +1,8 @@
 <div class="is-flex" style="min-height: 100vh; flex-direction: column;">
-    <div class="container" style="margin-top: 10%; margin-bottom: -10%">
+    <div class="container" style="margin-top: 10%;">
         <h1 class="title has-text-white" style="text-align: center">Welcome to online Horse races!</h1>
-        <h5 class="has-text-white title is-5" style="text-align: center">Please enter your username and room code</h5>
+        <h5 class="has-text-white title is-5" style="text-align: center;">Please enter your username and room code</h5>
+        <div id="elm-main"></div>
     </div>
-    <div id="elm-main"></div>
     <script type="text/javascript" src="<%= Routes.static_url(@conn, "/js/app.js") %>"></script>
 </div>
