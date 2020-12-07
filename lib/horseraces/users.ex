@@ -1,6 +1,8 @@
 defmodule Horseraces.Users do
   use Ecto.Schema
   import Ecto.Changeset
+  alias Horseraces.{Repo, Users}
+  require Ecto.Query
   require Logger
 
   schema "users" do
@@ -16,6 +18,10 @@ defmodule Horseraces.Users do
     room
     |> cast(attrs, [:username, :roomCode, :color, :bet])
     |> validate_required([:username, :roomCode, :color, :bet])
+  end
+
+  def getWinners(roomCode, color) do
+    query = Users |> Ecto.Query.where(roomCode: ^roomCode, color: ^color) |> Repo.all |> Enum.map(fn user -> [user.username, to_string(user.bet)] end)
   end
 
 end

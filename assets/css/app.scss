@@ -25,6 +25,11 @@ $fullhd-enabled: true;
   align-items: center;
 }
 
+.vertical{
+  float: left;
+  width: 100%;
+}
+
 .is-horizontal-center {
   justify-content: center;
 }
@@ -59,6 +64,21 @@ $fullhd-enabled: true;
   border-radius: 10px;
 }
 
+.cardRun{
+  -moz-box-shadow: 1px 2px 3px rgba(0,0,0,.5);
+  -webkit-box-shadow: 1px 2px 3px rgba(0,0,0,.5);
+  box-shadow: 1px 2px 3px rgba(0,0,0,.5);
+  transition: .5s ease;
+  backface-visibility: hidden;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  width: 15rem;
+  margin: 0.5rem;
+  visibility: visible;
+}
+li{
+  display: inline;
+}
 .fade{
   animation: fadein 1s;
 }

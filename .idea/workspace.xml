@@ -2,20 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b27b6887-9a95-49b6-9c66-d00de221f80b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/lib/horseraces/cards.ex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/horseraces_web/controllers/cards_controller.ex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/horseraces_web/controllers/user_controller.ex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/priv/repo/migrations/20201101183359_create_cards.exs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/css/app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/app.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/elm-stuff/0.19.1/Main.elmo" beforeDir="false" afterPath="$PROJECT_DIR$/assets/elm-stuff/0.19.1/Main.elmo" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/elm-stuff/0.19.1/d.dat" beforeDir="false" afterPath="$PROJECT_DIR$/assets/elm-stuff/0.19.1/d.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/elm-stuff/0.19.1/i.dat" beforeDir="false" afterPath="$PROJECT_DIR$/assets/elm-stuff/0.19.1/i.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/elm.json" beforeDir="false" afterPath="$PROJECT_DIR$/assets/elm.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/js/game.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/game.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/assets/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/assets/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/src/Game.elm" beforeDir="false" afterPath="$PROJECT_DIR$/assets/src/Game.elm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/src/Main.elm" beforeDir="false" afterPath="$PROJECT_DIR$/assets/src/Main.elm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/horseraces/application.ex" beforeDir="false" afterPath="$PROJECT_DIR$/lib/horseraces/application.ex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/horseraces/users.ex" beforeDir="false" afterPath="$PROJECT_DIR$/lib/horseraces/users.ex" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/horseraces_web/channels/room_channel.ex" beforeDir="false" afterPath="$PROJECT_DIR$/lib/horseraces_web/channels/room_channel.ex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/horseraces_web/templates/page/index.html.eex" beforeDir="false" afterPath="$PROJECT_DIR$/lib/horseraces_web/templates/page/index.html.eex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/horseraces_web/templates/rooms/game.html.eex" beforeDir="false" afterPath="$PROJECT_DIR$/lib/horseraces_web/templates/rooms/game.html.eex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/horseraces_web/router.ex" beforeDir="false" afterPath="$PROJECT_DIR$/lib/horseraces_web/router.ex" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,7 +53,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="javascript.nodejs.core.library.configured.version" value="15.3.0" />
     <property name="javascript.nodejs.core.library.typings.version" value="14.14.10" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/horseraces_web/controllers" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="org.elm.workspace.PROJECT_DISCOVERY" value="true" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
@@ -59,11 +61,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/lib/horseraces_web/controllers" />
+      <recent name="$PROJECT_DIR$/priv/repo/migrations" />
+      <recent name="$PROJECT_DIR$/lib/horseraces" />
       <recent name="$PROJECT_DIR$/lib/horseraces_web/views" />
       <recent name="$PROJECT_DIR$/assets/static/images" />
-      <recent name="$PROJECT_DIR$/priv/repo/migrations" />
-      <recent name="$PROJECT_DIR$/lib/horseraces_web/channels" />
-      <recent name="$PROJECT_DIR$/lib/horseraces" />
     </key>
   </component>
   <component name="RunManager">
@@ -97,7 +99,8 @@
       <workItem from="1607068686799" duration="781000" />
       <workItem from="1607094845931" duration="569000" />
       <workItem from="1607113745889" duration="660000" />
-      <workItem from="1607268723021" duration="10982000" />
+      <workItem from="1607268723021" duration="12253000" />
+      <workItem from="1607345806748" duration="29646000" />
     </task>
     <task id="LOCAL-00001" summary="Added game pages and start of the betting code">
       <created>1607024411914</created>
@@ -133,30 +136,30 @@
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
     <state x="594" y="327" width="721" height="464" key="EditFileWatcherDialog/0.36.1920.1044@0.36.1920.1044" timestamp="1606913104122" />
-    <state x="263" y="316" width="424" height="486" key="FileChooserDialogImpl" timestamp="1606913267667">
+    <state x="263" y="316" width="424" height="486" key="FileChooserDialogImpl" timestamp="1607288992465">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
-    <state x="263" y="316" width="424" height="486" key="FileChooserDialogImpl/0.36.1920.1044@0.36.1920.1044" timestamp="1606913267667" />
-    <state width="1870" height="272" key="GridCell.Tab.0.bottom" timestamp="1607282908609">
+    <state x="263" y="316" width="424" height="486" key="FileChooserDialogImpl/0.36.1920.1044@0.36.1920.1044" timestamp="1607288992465" />
+    <state width="1870" height="272" key="GridCell.Tab.0.bottom" timestamp="1607376421850">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
-    <state width="1870" height="272" key="GridCell.Tab.0.bottom/0.36.1920.1044@0.36.1920.1044" timestamp="1607282908609" />
-    <state width="1870" height="272" key="GridCell.Tab.0.center" timestamp="1607282908608">
+    <state width="1870" height="272" key="GridCell.Tab.0.bottom/0.36.1920.1044@0.36.1920.1044" timestamp="1607376421850" />
+    <state width="1870" height="272" key="GridCell.Tab.0.center" timestamp="1607376421849">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
-    <state width="1870" height="272" key="GridCell.Tab.0.center/0.36.1920.1044@0.36.1920.1044" timestamp="1607282908608" />
-    <state width="1870" height="272" key="GridCell.Tab.0.left" timestamp="1607282908608">
+    <state width="1870" height="272" key="GridCell.Tab.0.center/0.36.1920.1044@0.36.1920.1044" timestamp="1607376421849" />
+    <state width="1870" height="272" key="GridCell.Tab.0.left" timestamp="1607376421846">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
-    <state width="1870" height="272" key="GridCell.Tab.0.left/0.36.1920.1044@0.36.1920.1044" timestamp="1607282908608" />
-    <state width="1870" height="272" key="GridCell.Tab.0.right" timestamp="1607282908609">
+    <state width="1870" height="272" key="GridCell.Tab.0.left/0.36.1920.1044@0.36.1920.1044" timestamp="1607376421846" />
+    <state width="1870" height="272" key="GridCell.Tab.0.right" timestamp="1607376421849">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
-    <state width="1870" height="272" key="GridCell.Tab.0.right/0.36.1920.1044@0.36.1920.1044" timestamp="1607282908609" />
-    <state x="441" y="193" width="1037" height="732" key="SettingsEditor" timestamp="1606901685608">
+    <state width="1870" height="272" key="GridCell.Tab.0.right/0.36.1920.1044@0.36.1920.1044" timestamp="1607376421849" />
+    <state x="441" y="193" width="1037" height="732" key="SettingsEditor" timestamp="1607369749867">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
-    <state x="441" y="193" width="1037" height="732" key="SettingsEditor/0.36.1920.1044@0.36.1920.1044" timestamp="1606901685608" />
+    <state x="441" y="193" width="1037" height="732" key="SettingsEditor/0.36.1920.1044@0.36.1920.1044" timestamp="1607369749867" />
     <state x="555" y="293" width="800" height="531" key="Vcs.Push.Dialog.v2" timestamp="1607024416996">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
@@ -165,9 +168,9 @@
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
     <state x="652" y="269" width="615" height="578" key="find.popup/0.36.1920.1044@0.36.1920.1044" timestamp="1607015605388" />
-    <state x="623" y="266" width="672" height="678" key="search.everywhere.popup" timestamp="1606929229063">
+    <state x="623" y="266" width="672" height="678" key="search.everywhere.popup" timestamp="1607360306167">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
-    <state x="623" y="266" width="672" height="678" key="search.everywhere.popup/0.36.1920.1044@0.36.1920.1044" timestamp="1606929229063" />
+    <state x="623" y="266" width="672" height="678" key="search.everywhere.popup/0.36.1920.1044@0.36.1920.1044" timestamp="1607360306167" />
   </component>
 </project>

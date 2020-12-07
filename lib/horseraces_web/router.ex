@@ -44,6 +44,13 @@ defmodule HorseracesWeb.Router do
       resources "/rooms", RoomsController, only: [:show, :edit]
     end
 
+    resources "/", CardsController do
+      resources "/cards", CardsController, only: [:show]
+    end
+
+    resources "/", UsersController do
+      resources "/users", UsersController, only: [:show]
+    end
   end
 
   # Other scopes may use custom stacks.

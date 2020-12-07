@@ -3,6 +3,8 @@ import {Socket, Presence} from "phoenix"
 import "phoenix_html"
 import { Elm } from "../src/Game.elm";
 
+const regeneratorRuntime = require("regenerator-runtime");
+
 let roomCode = window.location.pathname.substr(6);
 let username = sessionStorage.getItem("username");
 let socket = new Socket("/socket", {params: {username: username, roomCode: roomCode}});
@@ -39,30 +41,40 @@ channel.join();
 
 var main = Elm.Game.init({
     node: document.getElementById('elm-game'),
-    flags : {url: window.location.href }
+    flags : {url: window.location.protocol + "//" + window.location.host}
 });
 
 
 //////// Init data Elm /////////
-main.ports.messageReceiver.send(JSON.stringify({"username": username}));
+main.ports.messageReceiver.send(JSON.stringify({"?username": username}));
+main.ports.messageReceiver.send(JSON.stringify({"?roomCode": roomCode}));
 if(isHost){
     main.ports.messageReceiver.send("?isHost");
 }
 //////// End init data Elm /////////
 
 
-main.ports.sendMessage.subscribe(function(payload) {
+main.ports.sendMessage.subscribe(async function(payload) {
         let message = JSON.parse(payload)
         console.log(message);
         switch (message.message){
             case "?bet":
                 channel.push('shout', {name: username,  body: "?bet", color: message.color, bet: message.bet});
                 break;
+            case "?winner":
+                getWinners(message.winner).then(function (winners){
+                    main.ports.messageReceiver.send(JSON.stringify(winners));
+                    const timeout = async ms => new Promise(res => setTimeout(res, ms));
+                    confetti.start();
+                    // timeout(10000).then(function(){window.location.href = "/"})
+                })
+                break;
+            case "?flip":
+                
             default:
                 console.log(message.message);
                 break;
         }
-
 });
 
 channel.on('shout', payload => {
@@ -84,3 +96,8 @@ channel.on('shout', payload => {
             break;
     }
 });
+
+async function getWinners(color){
+    let response = await fetch(window.location.protocol + "//" + window.location.host + "/api/" + roomCode + "/users/" + color);
+    return await response.json();
+}

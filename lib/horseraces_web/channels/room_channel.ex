@@ -3,7 +3,7 @@ defmodule HorseracesWeb.RoomChannel do
   require Logger
   require Ecto.Query
   alias HorseracesWeb.Presence
-  alias Horseraces.{Users, Repo, Rooms, ChannelWatcher}
+  alias Horseraces.{Users, Repo, Rooms, Cards, ChannelWatcher}
 
 
   def join("room:" <> room, _params, socket) do
@@ -77,6 +77,8 @@ defmodule HorseracesWeb.RoomChannel do
   def checkIfReady(roomCode) do
     case Users |> Ecto.Query.where(roomCode: ^roomCode) |> Repo.all |> Enum.filter(fn x -> x.color == "none" end) |> Enum.empty? do
       true ->
+        Cards.removeDeck(roomCode)
+        Cards.createDeck(roomCode)
         payload = %{"body" => "?letsgo", "username" => "?server"}
         payload = Map.merge(payload, %{"room" => roomCode})
         HorseracesWeb.Endpoint.broadcast("room:" <> roomCode, "shout", payload)
