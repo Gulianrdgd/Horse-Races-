@@ -82,29 +82,29 @@ view model =
                Loading.On -- LoadingState
            ]
     else
-       div [class "container columns fade is-vertical-center", style "margin-top" "13rem"]
+       div [class "container columns fade is-vertical-center", style "margin-top" "10rem", style "width" "100%"]
            [
-              div [class "column is-one-fifth is-flex is-horizontal-center"]
+              div [class "column is-one-fifth is-flex is-horizontal-center is-hidden-mobile"]
                   [
-                    img [src "/images/thalia.svg", class ""] []
+                    img [src "/images/thalia.svg", style "max-width" "60%"] []
                   ],
-              div  [class "column container form fade", style "margin" "auto"]
+              div  [class "column is-two-fifths container form fade", style "margin" "auto"]
                    [ p [class "subtitle is-5 has-text-white", style "margin-bottom" "0.3rem"] [text "Enter a username"]
                    , viewInput "text" "Username" model.username Username
                    , p [class "subtitle is-5 has-text-white", style "margin-bottom" "0.3rem"] [text "Enter a roomCode"]
-                   , viewInput "text" "Roomcode" (toLower model.roomCode) RoomCode
+                   , viewInput "text" "Roomcode " (toLower model.roomCode) RoomCode
                    , button [class "button", onClick (Submit True) ] [ text "submit" ]
                    , p [] [ text model.response]
                    ],
-              div [class "column is-one-fifth is-flex is-horizontal-center"]
+              div [class "column is-one-fifth is-flex is-horizontal-center is-hidden-mobile"]
                   [
-                    img [src "/images/thalia.svg", class ""] []
+                    img [src "/images/thalia.svg", style "max-width" "60%"] []
                   ]
             ]
 
 
 viewInput : String -> String -> String -> (String -> msg) -> Html msg
 viewInput t p v toMsg =
-  input [ type_ t, placeholder p, value v, onInput toMsg, class "input formField"] []
+  input [ type_ t, placeholder p, value v, onInput toMsg, class "input formField is-rounded", style "width" "100%"] []
 
 
