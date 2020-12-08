@@ -292,7 +292,7 @@ drawRace model = (model.raceField)
                                                 li [style "display" "inline"] [img [src ("/images/" ++ "null.png"), class "cardRun hidden", style "visibility" "hidden"] []]
                                                 else
                                                 li [style "display" "inline"] [img [src ("/images/Cards/" ++ card), class "cardRun fade"] []]) list) |> ul [] )
-                        |> ul [style "margin-top" "3rem"]
+                        |> ul [style "margin-top" "3rem", class "is-mobile"]
 
 
 createRaceListP : Int -> Int -> List (List (String))

@@ -10,10 +10,6 @@ defmodule HorseracesWeb.Router do
   end
 
   pipeline :internal do
-#    plug CORSPlug, Origin: [
-#                     "horserace.vdhorst.dev",
-#                     "127.0.0.1:4000"
-#    ]
     plug :accepts, ["html"]
     plug :fetch_session
     plug :fetch_flash

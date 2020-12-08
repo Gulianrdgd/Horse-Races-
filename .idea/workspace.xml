@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b27b6887-9a95-49b6-9c66-d00de221f80b" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/src/Game.elm" beforeDir="false" afterPath="$PROJECT_DIR$/assets/src/Game.elm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/horseraces_web/router.ex" beforeDir="false" afterPath="$PROJECT_DIR$/lib/horseraces_web/router.ex" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,7 +94,7 @@
       <workItem from="1607268723021" duration="12253000" />
       <workItem from="1607345806748" duration="29646000" />
       <workItem from="1607417197807" duration="989000" />
-      <workItem from="1607419175829" duration="13554000" />
+      <workItem from="1607419175829" duration="16305000" />
     </task>
     <task id="LOCAL-00001" summary="Added game pages and start of the betting code">
       <created>1607024411914</created>
@@ -115,7 +117,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607435106102</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Removed debug">
+      <created>1607437929996</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1607437929996</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -125,7 +134,8 @@
     <MESSAGE value="Added game pages and start of the betting code" />
     <MESSAGE value="Game done!" />
     <MESSAGE value="Made it a bit more pretty" />
-    <option name="LAST_COMMIT_MESSAGE" value="Made it a bit more pretty" />
+    <MESSAGE value="Removed debug" />
+    <option name="LAST_COMMIT_MESSAGE" value="Removed debug" />
   </component>
   <component name="WindowStateProjectService">
     <state x="418" y="216" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1606901847477">
@@ -136,10 +146,10 @@
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
     <state x="623" y="187" width="399" height="743" key="#com.intellij.openapi.keymap.impl.ui.EditKeymapsDialog/0.36.1920.1044@0.36.1920.1044" timestamp="1606945615505" />
-    <state x="492" y="71" width="925" height="976" key="CommitChangelistDialog2" timestamp="1607435105995">
+    <state x="492" y="71" width="925" height="976" key="CommitChangelistDialog2" timestamp="1607437929889">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
-    <state x="492" y="71" width="925" height="976" key="CommitChangelistDialog2/0.36.1920.1044@0.36.1920.1044" timestamp="1607435105995" />
+    <state x="492" y="71" width="925" height="976" key="CommitChangelistDialog2/0.36.1920.1044@0.36.1920.1044" timestamp="1607437929889" />
     <state x="594" y="327" width="721" height="464" key="EditFileWatcherDialog" timestamp="1606913104122">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
@@ -148,30 +158,30 @@
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
     <state x="263" y="316" width="424" height="486" key="FileChooserDialogImpl/0.36.1920.1044@0.36.1920.1044" timestamp="1607288992465" />
-    <state width="1870" height="272" key="GridCell.Tab.0.bottom" timestamp="1607433491974">
+    <state width="1870" height="272" key="GridCell.Tab.0.bottom" timestamp="1607446007269">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
-    <state width="1870" height="272" key="GridCell.Tab.0.bottom/0.36.1920.1044@0.36.1920.1044" timestamp="1607433491974" />
-    <state width="1870" height="272" key="GridCell.Tab.0.center" timestamp="1607433491973">
+    <state width="1870" height="272" key="GridCell.Tab.0.bottom/0.36.1920.1044@0.36.1920.1044" timestamp="1607446007269" />
+    <state width="1870" height="272" key="GridCell.Tab.0.center" timestamp="1607446007269">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
-    <state width="1870" height="272" key="GridCell.Tab.0.center/0.36.1920.1044@0.36.1920.1044" timestamp="1607433491973" />
-    <state width="1870" height="272" key="GridCell.Tab.0.left" timestamp="1607433491972">
+    <state width="1870" height="272" key="GridCell.Tab.0.center/0.36.1920.1044@0.36.1920.1044" timestamp="1607446007269" />
+    <state width="1870" height="272" key="GridCell.Tab.0.left" timestamp="1607446007268">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
-    <state width="1870" height="272" key="GridCell.Tab.0.left/0.36.1920.1044@0.36.1920.1044" timestamp="1607433491972" />
-    <state width="1870" height="272" key="GridCell.Tab.0.right" timestamp="1607433491974">
+    <state width="1870" height="272" key="GridCell.Tab.0.left/0.36.1920.1044@0.36.1920.1044" timestamp="1607446007268" />
+    <state width="1870" height="272" key="GridCell.Tab.0.right" timestamp="1607446007269">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
-    <state width="1870" height="272" key="GridCell.Tab.0.right/0.36.1920.1044@0.36.1920.1044" timestamp="1607433491974" />
+    <state width="1870" height="272" key="GridCell.Tab.0.right/0.36.1920.1044@0.36.1920.1044" timestamp="1607446007269" />
     <state x="441" y="193" width="1037" height="732" key="SettingsEditor" timestamp="1607369749867">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
     <state x="441" y="193" width="1037" height="732" key="SettingsEditor/0.36.1920.1044@0.36.1920.1044" timestamp="1607369749867" />
-    <state x="555" y="293" width="800" height="531" key="Vcs.Push.Dialog.v2" timestamp="1607435110339">
+    <state x="555" y="293" width="800" height="531" key="Vcs.Push.Dialog.v2" timestamp="1607437934909">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
-    <state x="555" y="293" width="800" height="531" key="Vcs.Push.Dialog.v2/0.36.1920.1044@0.36.1920.1044" timestamp="1607435110339" />
+    <state x="555" y="293" width="800" height="531" key="Vcs.Push.Dialog.v2/0.36.1920.1044@0.36.1920.1044" timestamp="1607437934909" />
     <state x="652" y="269" width="615" height="578" key="find.popup" timestamp="1607015605388">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
