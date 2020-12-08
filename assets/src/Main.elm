@@ -11,12 +11,9 @@ import Loading
   exposing
       ( LoaderType(..)
       , defaultConfig
-      , render
       )
-import Platform.Cmd exposing (batch, none)
-import Process exposing (sleep)
+import Platform.Cmd exposing (batch)
 import String exposing (slice, toLower)
-import Task exposing (attempt)
 
 -- MAIN
 
@@ -43,7 +40,7 @@ init str =
   Model "" "" False "" str
 
 subscriptions : Model -> Sub Msg
-subscriptions model =
+subscriptions _ =
   Sub.none
 
 type Msg
@@ -85,7 +82,7 @@ view model =
                Loading.On -- LoadingState
            ]
     else
-       div [class "container columns fade is-vertical-center", style "margin-top" "8rem"]
+       div [class "container columns fade is-vertical-center", style "margin-top" "13rem"]
            [
               div [class "column is-one-fifth is-flex is-horizontal-center"]
                   [

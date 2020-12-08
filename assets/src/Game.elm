@@ -2,15 +2,15 @@ port module Game exposing (..)
 
 import Browser
 import Debug exposing (toString)
-import Html exposing (..)
-import Html.Attributes exposing (..)
+import Html exposing (Html, button, div, h1, img, li, p, text, ul)
+import Html.Attributes exposing (class, src, style)
 import Html.Events exposing (onClick)
 import Http
 import Json.Decode exposing (decodeString, keyValuePairs, string, list)
 import List exposing (head, length, reverse, take)
 import Loading exposing (LoaderType(..), defaultConfig)
 import Json.Encode as Encode
-import String exposing (fromChar, fromInt, toInt, uncons)
+import String exposing (fromInt, toInt, uncons)
 import Time as Time exposing (Posix)
 
 -- MAIN
@@ -171,6 +171,7 @@ penalty race color = case color of
                         'd' -> {race | posD = race.posD + 1, posFlip = race.posFlip - 1}
                         _ -> race
 
+
 changeCardPos : RoundInfo -> String -> (RoundInfo, Cmd Msg)
 changeCardPos model card = case uncons card of
                             Just (x, _) -> let raceModel = changeRace model.race x in
@@ -241,13 +242,9 @@ view model =
         else if model.state == Run || model.state == WaitCard then
               div [ class "container fade center"]
                   [
-                  if model.winner == Empty then
-                     div [class "modal"]
-                        [
-                         div [class "modal-content"] [
-                            presentWinners model
-                         ]
-                        ] else div [] [],
+                  if model.winner /= Empty then
+                        presentWinners model
+                  else div [] [],
                       drawRace model
                   ]
         else
@@ -265,27 +262,38 @@ view model =
             ]
     ]
 
+
 presentWinners : RoundInfo -> Html msg
-presentWinners model = case length model.winners of
+presentWinners model =
+                     div [class "message is-large winnersBody center fade is-primary shadow", style "margin-top" "5rem"]
+                     [
+                     div [class "message-header center"]
+                     [
+                        h1 [class "title is-1 has-text-white center", style "margin" "auto" ] [text "The race has ended!"]
+                     ],
+                     div [class "message-body"]
+                     [
+                     case length model.winners of
                        0 ->
                            ul []
                            [
-                                li [] [text "Sadly, there are no winners!"]
+                                li [] [h1 [class "title is-1"] [text "Sadly, there are no winners!"]]
                            ]
                        _ ->
                             (model.winners)
-                                |> List.map(\(username, val) -> li [] [text (username ++ " can give out " ++ fromInt (val*2) ++ " sips!" )])
+                                |> List.map(\(username, val) -> li [] [h1 [class "title is-1"] [text (username ++ " can give out " ++ fromInt (val*2) ++ " sips!" )]])
                                 |> ul []
-
+                      ]
+                    ]
 
 
 drawRace : RoundInfo -> Html msg
 drawRace model = (model.raceField)
                         |> List.indexedMap(\index list -> (List.indexedMap (\i el -> let card = checkIndex index i el model in if card == "" then
-                                                li [style "display" "inline"] [img [src ("/images/Cards/" ++ "back.jpg"), class "cardRun fade", style "visibility" "hidden"] []]
+                                                li [style "display" "inline"] [img [src ("/images/" ++ "null.png"), class "cardRun hidden", style "visibility" "hidden"] []]
                                                 else
-                                                li [style "display" "inline"] [img [src ("/images/Cards/" ++ card), class "cardRun fade"] []]) list) |> ul [class "fade"] )
-                        |> ul [style "margin-top" "3rem", class "fade"]
+                                                li [style "display" "inline"] [img [src ("/images/Cards/" ++ card), class "cardRun fade"] []]) list) |> ul [] )
+                        |> ul [style "margin-top" "3rem"]
 
 
 createRaceListP : Int -> Int -> List (List (String))

@@ -25,21 +25,23 @@ defmodule HorseracesWeb.RoomChannel do
         ^user_id ->
           Users |> Ecto.Query.where(username: ^user_id) |> Repo.delete_all
           case Users |> Ecto.Query.where(roomCode: ^room_id) |> Repo.exists? do
-
             # If there are still users in the room then do this
             true ->
-              users = Users |> Ecto.Query.where(roomCode: ^room_id) |> Repo.one
+              users = Users |> Ecto.Query.where(roomCode: ^room_id) |> Repo.all |> Enum.at(0)
               changeset = Rooms.changeset(query, %{roomCode: query.roomCode, isPlaying: query.isPlaying, host: users.username})
               Repo.update(changeset)
-              # If you were the last then delete room
+
               leaving(room_id, user_id, users.username)
 
+            # If you were the last then delete room
             false ->
               Rooms |> Ecto.Query.where(roomCode: ^room_id) |> Repo.delete_all
           end
-
-        _ ->  Users |> Ecto.Query.where(username: ^user_id) |> Repo.delete_all
-              leaving(room_id, user_id, "?noNewHostToBeFoundHere")
+        _ ->
+              unless is_nil(user_id) do
+                Users |> Ecto.Query.where(username: ^user_id) |> Repo.delete_all
+                leaving(room_id, user_id, "?noNewHostToBeFoundHere")
+              end
       end
     end
   end
@@ -59,6 +61,24 @@ defmodule HorseracesWeb.RoomChannel do
         payload = Map.merge(payload, %{"room" => room})
         placeBet(payload["name"], room, payload["color"], payload["bet"])
         checkIfReady(room)
+        {:noreply, socket}
+      "?cleanLobby" ->
+        "room:" <> room = socket.topic
+        areLeftovers = Users |> Ecto.Query.where([x], x.roomCode == ^room and x.username != ^payload["name"]) |> Repo.exists?
+        if(areLeftovers) do
+          Users |> Ecto.Query.where([x], x.roomCode == ^room and x.username != ^payload["name"]) |> Repo.delete_all
+        end
+
+        roomHostGhosts = Rooms |> Ecto.Query.where([x], x.roomCode == ^room and x.host != ^payload["name"]) |> Repo.exists?
+        if(roomHostGhosts) do
+          query = Rooms |> Ecto.Query.where(roomCode: ^room) |> Repo.one
+          Rooms.changeset(query, %{roomCode: query.roomCode, isPlaying: query.isPlaying, host: payload["name"]}) |> Repo.update
+
+          payload = %{"body" => "?newHost", "username" => payload["name"]}
+          payload = Map.merge(payload, %{"room" => room})
+          broadcast socket, "shout", payload
+        end
+
         {:noreply, socket}
       _ ->
         "room:" <> room = socket.topic

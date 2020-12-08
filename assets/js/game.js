@@ -56,7 +56,6 @@ if(isHost){
 
 main.ports.sendMessage.subscribe(async function(payload) {
         let message = JSON.parse(payload)
-        console.log(message);
         switch (message.message){
             case "?bet":
                 channel.push('shout', {name: username,  body: "?bet", color: message.color, bet: message.bet});
@@ -66,13 +65,11 @@ main.ports.sendMessage.subscribe(async function(payload) {
                     main.ports.messageReceiver.send(JSON.stringify(winners));
                     const timeout = async ms => new Promise(res => setTimeout(res, ms));
                     confetti.start();
-                    // timeout(10000).then(function(){window.location.href = "/"})
+                    sessionStorage.clear();
+                    timeout(10000).then(function(){window.location.href = "/"})
                 })
                 break;
-            case "?flip":
-                
             default:
-                console.log(message.message);
                 break;
         }
 });
@@ -87,15 +84,25 @@ channel.on('shout', payload => {
         case "?leaving":
             if(payload.name === username){
                 isHost = true;
-                window.isHost = true;
+                main.ports.messageReceiver.send("?isHost");
             }
             toastr.warning(payload.left + " has left the room")
+            break;
+        case "?newHost":
+            if(payload.name === username){
+                isHost = true;
+                main.ports.messageReceiver.send("?isHost");
+            }
             break;
         default:
             main.ports.messageReceiver.send(JSON.stringify(payload));
             break;
     }
 });
+
+window.onbeforeunload = function(){
+    sessionStorage.clear();
+}
 
 async function getWinners(color){
     let response = await fetch(window.location.protocol + "//" + window.location.host + "/api/" + roomCode + "/users/" + color);

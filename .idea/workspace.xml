@@ -2,22 +2,73 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b27b6887-9a95-49b6-9c66-d00de221f80b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/lib/horseraces/cards.ex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/horseraces_web/controllers/cards_controller.ex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/horseraces_web/controllers/user_controller.ex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/priv/repo/migrations/20201101183359_create_cards.exs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/static/images/Cards/back.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/static/images/Cards/c10.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/static/images/Cards/c11.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/static/images/Cards/c12.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/static/images/Cards/c13.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/static/images/Cards/c14.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/static/images/Cards/c2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/static/images/Cards/c3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/static/images/Cards/c4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/static/images/Cards/c5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/static/images/Cards/c6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/static/images/Cards/c7.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/static/images/Cards/c8.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/static/images/Cards/c9.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/static/images/Cards/d10.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/static/images/Cards/d11.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/static/images/Cards/d12.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/static/images/Cards/d13.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/static/images/Cards/d14.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/static/images/Cards/d2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/static/images/Cards/d3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/static/images/Cards/d4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/static/images/Cards/d5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/static/images/Cards/d6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/static/images/Cards/d7.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/static/images/Cards/d8.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/static/images/Cards/d9.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/static/images/Cards/h10.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/static/images/Cards/h11.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/static/images/Cards/h12.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/static/images/Cards/h13.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/static/images/Cards/h14.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/static/images/Cards/h2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/static/images/Cards/h3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/static/images/Cards/h4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/static/images/Cards/h5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/static/images/Cards/h6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/static/images/Cards/h7.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/static/images/Cards/h8.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/static/images/Cards/h9.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/static/images/Cards/s10.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/static/images/Cards/s11.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/static/images/Cards/s12.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/static/images/Cards/s13.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/static/images/Cards/s14.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/static/images/Cards/s2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/static/images/Cards/s3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/static/images/Cards/s4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/static/images/Cards/s5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/static/images/Cards/s6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/static/images/Cards/s7.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/static/images/Cards/s8.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/static/images/Cards/s9.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/static/images/null.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/static/images/thalia.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/static/images/thalia.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/css/app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/app.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/elm-stuff/0.19.1/Main.elmo" beforeDir="false" afterPath="$PROJECT_DIR$/assets/elm-stuff/0.19.1/Main.elmo" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/elm-stuff/0.19.1/d.dat" beforeDir="false" afterPath="$PROJECT_DIR$/assets/elm-stuff/0.19.1/d.dat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/elm-stuff/0.19.1/i.dat" beforeDir="false" afterPath="$PROJECT_DIR$/assets/elm-stuff/0.19.1/i.dat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/elm.json" beforeDir="false" afterPath="$PROJECT_DIR$/assets/elm.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/js/game.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/game.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/assets/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/assets/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/src/Game.elm" beforeDir="false" afterPath="$PROJECT_DIR$/assets/src/Game.elm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/horseraces/users.ex" beforeDir="false" afterPath="$PROJECT_DIR$/lib/horseraces/users.ex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/src/Main.elm" beforeDir="false" afterPath="$PROJECT_DIR$/assets/src/Main.elm" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/horseraces_web/channels/room_channel.ex" beforeDir="false" afterPath="$PROJECT_DIR$/lib/horseraces_web/channels/room_channel.ex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/horseraces_web/router.ex" beforeDir="false" afterPath="$PROJECT_DIR$/lib/horseraces_web/router.ex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/horseraces_web/templates/rooms/game.html.eex" beforeDir="false" afterPath="$PROJECT_DIR$/lib/horseraces_web/templates/rooms/game.html.eex" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,6 +152,8 @@
       <workItem from="1607113745889" duration="660000" />
       <workItem from="1607268723021" duration="12253000" />
       <workItem from="1607345806748" duration="29646000" />
+      <workItem from="1607417197807" duration="989000" />
+      <workItem from="1607419175829" duration="10202000" />
     </task>
     <task id="LOCAL-00001" summary="Added game pages and start of the betting code">
       <created>1607024411914</created>
@@ -140,22 +193,22 @@
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
     <state x="263" y="316" width="424" height="486" key="FileChooserDialogImpl/0.36.1920.1044@0.36.1920.1044" timestamp="1607288992465" />
-    <state width="1870" height="272" key="GridCell.Tab.0.bottom" timestamp="1607376421850">
+    <state width="1870" height="272" key="GridCell.Tab.0.bottom" timestamp="1607430072360">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
-    <state width="1870" height="272" key="GridCell.Tab.0.bottom/0.36.1920.1044@0.36.1920.1044" timestamp="1607376421850" />
-    <state width="1870" height="272" key="GridCell.Tab.0.center" timestamp="1607376421849">
+    <state width="1870" height="272" key="GridCell.Tab.0.bottom/0.36.1920.1044@0.36.1920.1044" timestamp="1607430072360" />
+    <state width="1870" height="272" key="GridCell.Tab.0.center" timestamp="1607430072359">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
-    <state width="1870" height="272" key="GridCell.Tab.0.center/0.36.1920.1044@0.36.1920.1044" timestamp="1607376421849" />
-    <state width="1870" height="272" key="GridCell.Tab.0.left" timestamp="1607376421846">
+    <state width="1870" height="272" key="GridCell.Tab.0.center/0.36.1920.1044@0.36.1920.1044" timestamp="1607430072359" />
+    <state width="1870" height="272" key="GridCell.Tab.0.left" timestamp="1607430072358">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
-    <state width="1870" height="272" key="GridCell.Tab.0.left/0.36.1920.1044@0.36.1920.1044" timestamp="1607376421846" />
-    <state width="1870" height="272" key="GridCell.Tab.0.right" timestamp="1607376421849">
+    <state width="1870" height="272" key="GridCell.Tab.0.left/0.36.1920.1044@0.36.1920.1044" timestamp="1607430072358" />
+    <state width="1870" height="272" key="GridCell.Tab.0.right" timestamp="1607430072360">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
-    <state width="1870" height="272" key="GridCell.Tab.0.right/0.36.1920.1044@0.36.1920.1044" timestamp="1607376421849" />
+    <state width="1870" height="272" key="GridCell.Tab.0.right/0.36.1920.1044@0.36.1920.1044" timestamp="1607430072360" />
     <state x="441" y="193" width="1037" height="732" key="SettingsEditor" timestamp="1607369749867">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
