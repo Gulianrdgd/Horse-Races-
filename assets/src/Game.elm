@@ -255,7 +255,7 @@ view model =
                         h1 [class "title is-1" ,onClick Increment ] [text "🍺"],
                         h1 [class "title is-1  has-text-white"] [text (fromInt model.bet)],
                         h1 [class "title is-1 ", onClick Decrement ] [text "😥"],
-                        button [class "button", onClick (Ready Waiting)] [text "Submit*"],
+                        button [class "button", onClick (Ready Waiting), style "margin-bottom" "1rem", style "z-index" "10"] [text "Submit*"],
                         p [class "subtitle is-5 has-text-white footnote"] [text "*I hereby swear I will drink double my entered bet if I loose.\n Any lying participant will be reported"]
                     ]
             ]
