@@ -1,7 +1,6 @@
 port module Game exposing (..)
 
 import Browser
-import Debug exposing (toString)
 import Html exposing (Html, button, div, h1, img, li, p, text, ul)
 import Html.Attributes exposing (class, src, style)
 import Html.Events exposing (onClick)
@@ -254,7 +253,7 @@ view model =
               div  [class "container form fade center"]
                     [
                         h1 [class "title is-1" ,onClick Increment ] [text "🍺"],
-                        h1 [class "title is-1  has-text-white"] [text (toString model.bet)],
+                        h1 [class "title is-1  has-text-white"] [text (fromInt model.bet)],
                         h1 [class "title is-1 ", onClick Decrement ] [text "😥"],
                         button [class "button", onClick (Ready Waiting)] [text "Submit*"],
                         p [class "subtitle is-5 has-text-white footnote"] [text "*I hereby swear I will drink double my entered bet if I loose.\n Any lying participant will be reported"]
