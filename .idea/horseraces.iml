@@ -92,5 +92,6 @@
     <orderEntry type="library" name="html_entities" level="project" />
     <orderEntry type="library" name="cowlib" level="project" />
     <orderEntry type="library" name="ranch" level="project" />
+    <orderEntry type="library" name="Elixir at /usr/lib/elixir" level="application" />
   </component>
 </module>
