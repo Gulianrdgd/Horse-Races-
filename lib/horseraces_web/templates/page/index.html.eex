@@ -4,7 +4,7 @@
         <h5 class="has-text-white title is-5" style="text-align: center;">Please enter your username and room code</h5>
         <div  id="elm-main"></div>
     </div>
-    <script type="text/javascript" src="<%= Routes.static_url(@conn, "/js/app.js") %>"></script>
+    <script type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
     <footer class="footer">
         <div class="content has-text-centered">
             <p>
